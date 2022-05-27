@@ -1,17 +1,17 @@
 def ansible = [:]
          ansible.name = 'ansible'
-         ansible.host = '172.31.30.154'
-         ansible.user = 'centos'
-         ansible.password = 'Rnstech@123'
+         ansible.host = '172.31.44.14'
+         ansible.user = 'ec2-user'
+         ansible.password = '8686865755'
          ansible.allowAnyHosts = true
 def kops = [:]
          kops.name = 'kops'
-         kops.host = '172.31.34.51'
-         kops.user = 'centos'
-         kops.password = 'Rnstech@123'
+         kops.host = '172.31.38.200'
+         kops.user = 'ec2-user'
+         kops.password = '8686865755'
          kops.allowAnyHosts = true
 pipeline {
-    agent { label 'buildserver'}
+    agent { label 'build-server'}
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
@@ -22,7 +22,7 @@ pipeline {
         stage('Prepare-Workspace') {
             steps {
                 // Get some code from a GitHub repository
-                git credentialsId: 'github-server-credentials', url: 'https://github.com/venkat09docs/Maven-Java-Project.git'    
+                git credentialsId: 'github-server-credentials', url: 'https://github.com/Bal-Charan-Goli/cherry93.git'    
 		stash 'Source'
             }
             
@@ -82,7 +82,7 @@ pipeline {
       stage('Build Docker Image') {
          
          steps{
-                  sh "docker build -t gvenkat/webapp1 ."  
+                  sh "docker build -t cherry1993/webapp1 ."  
          }
      }
 	    
@@ -93,7 +93,7 @@ pipeline {
     	      withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUser')]) {
     		    sh "docker login -u ${dockerUser} -p ${dockerPassword}"
 	      }
-        	sh "docker push gvenkat/webapp1"
+        	sh "docker push cherry1993/webapp1"
          }
     }
 	    
