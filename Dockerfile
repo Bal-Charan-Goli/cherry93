@@ -1,4 +1,4 @@
-FROM centos
+FROM ec2-user
 
 LABEL Maintainer=RNS Email=rns@rnstech.com
 
