@@ -1,5 +1,5 @@
-[build]
+[build-server]
 172.31.4.212
 
-[sonar]
+[Sonar-Server]
 172.31.10.166
