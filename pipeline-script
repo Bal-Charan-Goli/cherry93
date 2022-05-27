@@ -1,16 +1,16 @@
-node('BuildServer') {
+node('build-server') {
     def mvnHome
     
     def remote = [:]
     remote.name = 'appserver'
-    remote.host = '172.31.28.7'
-    remote.user = 'centos'
-    remote.password = 'Rnstech@123'
+    remote.host = '172.31.4.212'
+    remote.user = 'ec2-user'
+    remote.password = '8686865755'
     remote.allowAnyHosts = true
   
     stage('Preparation') {         
 
-            git credentialsId: '198f4363-36e8-454c-b449-61cf4d4f89fa', url: 'https://github.com/venkat09docs/Maven-Java-Project.git'
+            git credentialsId: '198f4363-36e8-454c-b449-61cf4d4f89fa', url: 'https://github.com/Bal-Charan-Goli/cherry93.git'
 
             mvnHome = tool 'Maven3'
 
