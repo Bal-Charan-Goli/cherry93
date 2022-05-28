@@ -31,7 +31,7 @@ pipeline {
             steps {
 		    echo "Tools Setup"
                 sshCommand remote: ansible, command: 'cd cherry93; git pull'
-                sshCommand remote: ansible, command: 'cd cherry93; ansible-playbook -i hosts tools/sonarqube/sonar-install.yaml'
+                //sshCommand remote: ansible, command: 'cd cherry93; ansible-playbook -i hosts tools/sonarqube/sonar-install.yaml'
                 sshCommand remote: ansible, command: 'cd cherry93; ansible-playbook -i hosts tools/docker/docker-install.yml'   
                      
                 //K8s Setup
