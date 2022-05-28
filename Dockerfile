@@ -1,6 +1,6 @@
 FROM ec2-user
 
-LABEL Maintainer=RNS Email=rns@rnstech.com
+LABEL Maintainer=CHARAN Email=charan0612@gmail.com
 
 RUN yum update -y
 RUN yum -y install java
